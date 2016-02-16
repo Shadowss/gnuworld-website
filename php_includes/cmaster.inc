@@ -230,6 +230,7 @@ $level_set_secret = 501;
 $level_set_tempman = 501;
 $level_set_caution = 501;
 $level_set_vacation = 501;
+$level_set_notake = 501;
 
 $level_purge = 750;
 $level_remignore = 750;
@@ -239,6 +240,7 @@ $level_say = 800;
 
 $level_die = 900;
 $level_restart = 900;
+$level_set_noforce = 1000;
 
 $need_rollback=0;
 
@@ -1886,7 +1888,7 @@ function show_ticket_events($complaint_ID,$hilight_last = 0) {
 
 /* Forms and strings manipulation functions */
 
-define(RPL_CR,"¤@¤");
+define(RPL_CR,"Â¤@Â¤");
 
 function N_get_pure_string($POST_OR_GET_VAR) {
 	return(trim(str_replace(RPL_CR,"\n",str_replace("\r","",stripslashes(urldecode($POST_OR_GET_VAR))))));
@@ -2275,11 +2277,11 @@ function gen_server_url() {
 }
 
 function C_strtolower($txt){
-	return(strtolower(strtr($txt,"ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖØÙÚÛÜİ","àáâãäåçèéêëìíîïñòóôõöøùúûüı")));
+	return(strtolower(strtr($txt,"Ã€ÃÃ‚ÃƒÃ„Ã…Ã‡ÃˆÃ‰ÃŠÃ‹ÃŒÃÃÃÃ‘Ã’Ã“Ã”Ã•Ã–Ã˜Ã™ÃšÃ›ÃœÃ","Ã Ã¡Ã¢Ã£Ã¤Ã¥Ã§Ã¨Ã©ÃªÃ«Ã¬Ã­Ã®Ã¯Ã±Ã²Ã³Ã´ÃµÃ¶Ã¸Ã¹ÃºÃ»Ã¼Ã½")));
 }
 
 function C_strtoupper($txt){
-	return(strtoupper(strtr($txt,"àáâãäåçèéêëìíîïñòóôõöøùúûüı","ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖØÙÚÛÜİ")));
+	return(strtoupper(strtr($txt,"Ã Ã¡Ã¢Ã£Ã¤Ã¥Ã§Ã¨Ã©ÃªÃ«Ã¬Ã­Ã®Ã¯Ã±Ã²Ã³Ã´ÃµÃ¶Ã¸Ã¹ÃºÃ»Ã¼Ã½","Ã€ÃÃ‚ÃƒÃ„Ã…Ã‡ÃˆÃ‰ÃŠÃ‹ÃŒÃÃÃÃ‘Ã’Ã“Ã”Ã•Ã–Ã˜Ã™ÃšÃ›ÃœÃ")));
 }
 
 function js_redir($url, $toTop = 0) {
