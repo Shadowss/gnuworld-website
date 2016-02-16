@@ -176,7 +176,7 @@ if ($button == "Save Changes") {
 	set_flag($access>=$level_set_neverreg,$channel->flags,0x00000008,$neverreg);
         set_flag($access>=$level_set_mia     ,$channel->flags,0x00000400,$mia);
         set_flag($access>=$level_set_noforce ,$channel->flags,0x00400000,$noforce);
-        set_flag($access>=$level_set_notake  ,$channel->flags,0x00500000,$notake);
+        set_flag($access>=$level_set_notake  ,$channel->flags,0x01000000,$notake);
 	set_flag($access>=$level_set_suspend ,$channel->flags,0x00000010,$suspend);
 	set_flag($access>=$level_set_tempman ,$channel->flags,0x00000020,$tempman);
 	set_flag($access>=$level_set_caution ,$channel->flags,0x00000040,$cautioned);
@@ -400,7 +400,7 @@ if (($access >= $level_status) || ($admin > 0)) {
                 flag($edit && $access>=$level_set_mia,(int)$channel->flags & 0x00000400,"* MIA","mia","Y");
                 flag($edit && $access>=$level_set_neverreg,(int)$channel->flags & 0x00000008,"* Never Register","neverreg","Y");
                 flag($edit && $access>=$level_set_noforce,(int)$channel->flags & 0x00400000,"* No Force","noforce","Y");
-                flag($edit && $access>=$level_set_notake,(int)$channel->flags & 0x00500000,"* No Take","notake","Y");
+                flag($edit && $access>=$level_set_notake,(int)$channel->flags & 0x01000000,"* No Take","notake","Y");
 		flag($edit && $access>=$level_set_suspend,(int)$channel->flags & 0x00000010,"* Channel Suspension","suspend","Y");
 		flag($edit && $access>=$level_set_tempman,(int)$channel->flags & 0x00000020,"* Temp Manager","tempman","Y");
 		flag($edit && $access>=$level_set_caution,(int)$channel->flags & 0x00000040,"* Cautioned","cautioned","Y");
