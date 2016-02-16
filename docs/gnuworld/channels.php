@@ -176,7 +176,7 @@ if ($button == "Save Changes") {
 	set_flag($access>=$level_set_neverreg,$channel->flags,0x00000008,$neverreg);
         set_flag($access>=$level_set_mia     ,$channel->flags,0x00000400,$mia);
         set_flag($access>=$level_set_noforce ,$channel->flags,0x00400000,$noforce);
-        set_flag($access>=$level_set_noforce ,$channel->flags,0x00500000,$notake);
+        set_flag($access>=$level_set_notake  ,$channel->flags,0x00500000,$notake);
 	set_flag($access>=$level_set_suspend ,$channel->flags,0x00000010,$suspend);
 	set_flag($access>=$level_set_tempman ,$channel->flags,0x00000020,$tempman);
 	set_flag($access>=$level_set_caution ,$channel->flags,0x00000040,$cautioned);
