@@ -186,6 +186,7 @@ if ($button == "Save Changes") {
 	//set_flag($access>=$level_set_alwaysop ,$channel->flags,0x00010000,$alwaysop);
 	set_flag($access>=$level_set_strictop ,$channel->flags,0x00020000,$strictop);
 	set_flag($access>=$level_set_noop     ,$channel->flags,0x00040000,$noop);
+	set_flag($access>=$level_set_novoice  ,$channel->flags,0x00800000,$novoice);
 	set_flag($access>=$level_set_autotopic,$channel->flags,0x00080000,$autotopic);
 
 	set_number($access>=$level_set_massdeoppro,$channel->mass_deop_pro,$massdeop,0,10);
@@ -410,6 +411,7 @@ if (($access >= $level_status) || ($admin > 0)) {
 		//flag($edit && $access>=$level_set_alwaysop,(int)$channel->flags & 0x00010000," Always Op","alwaysop","Y");
 		flag($edit && $access>=$level_set_strictop,(int)$channel->flags & 0x00020000," Strict Op","strictop","Y");
 		flag($edit && $access>=$level_set_noop,(int)$channel->flags & 0x00040000," No Op","noop","Y");
+		flag($edit && $access>=$level_set_novoice,(int)$channel->flags & 0x00800000," No Voice","novoice","Y");
 		flag($edit && $access>=$level_set_autotopic,(int)$channel->flags & 0x00080000," Auto Topic","autotopic","Y");
 		//flag($edit && $access>=$level_set_oponly,(int)$channel->flags & 0x00100000," Op Only","oponly","Y");
 		flag($edit && $access>=$level_set_autojoin,(int)$channel->flags & 0x00200000," Auto Join","autojoin","Y");
