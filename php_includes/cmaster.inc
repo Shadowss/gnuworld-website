@@ -218,6 +218,7 @@ $level_set_oponly = 500;
 $level_set_strictop = 500;
 $level_set_lang = 500;
 $level_set_floodpro = 500;
+$level_set_novoice = 500;
 $level_set_autojoin = 500;
 
 $level_immune_floodpro = 501;
