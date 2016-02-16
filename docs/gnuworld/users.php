@@ -590,6 +590,28 @@ Last hostmask <input type=text name=thehostmask>&nbsp;(wildcard : *)<br><br>
 				}
 			}
 		}
+                        if ($admin>=1000) { // new
+                                echo "<tr><td><b>User's POWER setting</b></td><td>";
+                                if ($edit && $user_id!=$user->id) {
+                                        if ((int)$user->flags & 0x1000) { $ps1 = "selected "; $ps2 = ""; } else { $ps1 = ""; $ps2 = "selected "; }
+                                        echo "<select name=power>";
+                                        echo "<option " . $ps1 . "value=1>ON</option>\n";
+                                        echo "<option " . $ps2 . "value=2>OFF</option>\n";
+                                        echo "</select>\n";
+                                        echo "</td></tr>\n";
+                                } else {
+                                        echo "<input type=hidden name=power value=";
+                                        if ((int)$user->flags & 0x1000) {
+                                                echo "1>";
+                                                echo "<font color=#" . $cTheme->main_yes . "><b>ON";
+                                        } else {
+                                                echo "2>";
+                                                echo "<font color=#" . $cTheme->main_no . "><b>OFF";
+                                        }
+                                        echo "</b></font></td></tr>\n";
+                                }
+                        }
+                }
 		if ($admin>=800) { // new
 			echo "<tr><td><b>User's OPER setting</b></td><td>";
 			if ($edit) {
@@ -608,10 +630,6 @@ Last hostmask <input type=text name=thehostmask>&nbsp;(wildcard : *)<br><br>
 			}
 			echo "</b></font></td></tr>\n";
 		}
-
-
-
-	}
 	if (!$edit) {
 		if ($admin>0 || acl(XAT_CAN_EDIT)) {
 		        echo "<tr><td><b>Can post next form on</b></td><td>";
